@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.springexample.proxyannotationspring.autoconfigure.AuthenticationAutoConfiguration,\
+com.springexample.proxyannotationspring.annotation.ProxyAuthenticationTokenBeanPostProcessor,\
+com.springexample.proxyannotationspring.proxy.ProxyTokenGenerator,\
+com.springexample.proxyannotationspring.aspect.ProxyOAuth2Aspect,\
+com.springexample.proxyannotationspring.proxy.ProxyTokenGenerator

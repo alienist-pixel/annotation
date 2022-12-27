@@ -27,9 +27,7 @@ public class ProxyTokenFieldCallBack implements FieldCallback {
 	          Class<?> dummyService = field.getType();
 	          ReflectionUtils.makeAccessible(field);
 	          Object instance = getBeanInstance(dummyService.getSimpleName(), dummyService);
-	          //System.out.println("bean instance" + dummyServiceInstance);
 	          field.set(bean, (String) new ProxyTokenGenerator().getAccessToken());
-	          //System.out.println("bean injected ");
 	      }
 		  
 	  }

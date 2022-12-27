@@ -1,13 +1,11 @@
 package com.springexample.proxyannotationspring.controller;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
-import com.springexample.proxyannotationspring.annotation.EnableProxyAuthentication;
 import com.springexample.proxyannotationspring.annotation.GetAccessToken;
 
-@Component
-@EnableProxyAuthentication
+//@Component
+//@EnableProxyAuthentication
 public class ComponentTest implements CommandLineRunner{
 
 	@GetAccessToken

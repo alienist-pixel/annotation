@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springexample.proxyannotationspring.annotation.EnableProxyAuthentication;
 import com.springexample.proxyannotationspring.annotation.GetAccessToken;
 
-@RestController
-@EnableProxyAuthentication
+//@RestController
+//@EnableProxyAuthentication
 public class TestController {
 	
 	@Override

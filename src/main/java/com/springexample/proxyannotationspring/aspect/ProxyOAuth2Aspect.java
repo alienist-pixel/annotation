@@ -1,6 +1,7 @@
-package com.springexample.proxyannotationspring;
+package com.springexample.proxyannotationspring.aspect;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 
-import com.springexample.proxyannotationspring.annotation.EnableProxyAuthentication;
 import com.springexample.proxyannotationspring.annotation.ProxyTokenFieldCallBack;
 
 @Aspect
@@ -28,12 +28,9 @@ public class ProxyOAuth2Aspect {
 	@Before(value = "@within(com.springexample.proxyannotationspring.annotation.EnableProxyAuthentication) "
 			+ "|| @annotation(com.springexample.proxyannotationspring.annotation.EnableProxyAuthentication)")
 	private void log(JoinPoint joinPoint) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ " + joinPoint);
-		if (joinPoint.getTarget().getClass().isAnnotationPresent(EnableProxyAuthentication.class)) {
-            ReflectionUtils.doWithFields(joinPoint.getTarget().getClass(), new ProxyTokenFieldCallBack(configurableBeanFactory, joinPoint.getTarget()));
-        }
-		System.out.println("Instance set complete");
+		//System.out.println("ProxyOAuth2Aspect : " + joinPoint.getTarget().getClass());
+		//System.out.println("ProxyOAuth2Aspect Anotation : " +  Arrays.deepToString(joinPoint.getTarget().getClass().getAnnotations()) + "size : " + joinPoint.getTarget().getClass().getAnnotations().length );
+        ReflectionUtils.doWithFields(joinPoint.getTarget().getClass(), new ProxyTokenFieldCallBack(configurableBeanFactory, joinPoint.getTarget()));
 	}
-	
 
 }
